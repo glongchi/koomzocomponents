@@ -5,7 +5,6 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { MatchResults } from "@stencil/router";
 import { IDroppableControlInput } from "./components/models/index";
 export namespace Components {
     interface AppDraggable {
@@ -16,9 +15,6 @@ export namespace Components {
         "complete": (ev: any, data: any) => Promise<void>;
     }
     interface AppHome {
-    }
-    interface AppProfile {
-        "match": MatchResults;
     }
     interface AppRoot {
     }
@@ -50,12 +46,6 @@ declare global {
         prototype: HTMLAppHomeElement;
         new (): HTMLAppHomeElement;
     };
-    interface HTMLAppProfileElement extends Components.AppProfile, HTMLStencilElement {
-    }
-    var HTMLAppProfileElement: {
-        prototype: HTMLAppProfileElement;
-        new (): HTMLAppProfileElement;
-    };
     interface HTMLAppRootElement extends Components.AppRoot, HTMLStencilElement {
     }
     var HTMLAppRootElement: {
@@ -78,7 +68,6 @@ declare global {
         "app-draggable": HTMLAppDraggableElement;
         "app-droppable": HTMLAppDroppableElement;
         "app-home": HTMLAppHomeElement;
-        "app-profile": HTMLAppProfileElement;
         "app-root": HTMLAppRootElement;
         "kz-draggable": HTMLKzDraggableElement;
         "kz-droppable": HTMLKzDroppableElement;
@@ -94,9 +83,6 @@ declare namespace LocalJSX {
     }
     interface AppHome {
     }
-    interface AppProfile {
-        "match"?: MatchResults;
-    }
     interface AppRoot {
     }
     interface KzDraggable {
@@ -111,7 +97,6 @@ declare namespace LocalJSX {
         "app-draggable": AppDraggable;
         "app-droppable": AppDroppable;
         "app-home": AppHome;
-        "app-profile": AppProfile;
         "app-root": AppRoot;
         "kz-draggable": KzDraggable;
         "kz-droppable": KzDroppable;
@@ -124,7 +109,6 @@ declare module "@stencil/core" {
             "app-draggable": LocalJSX.AppDraggable & JSXBase.HTMLAttributes<HTMLAppDraggableElement>;
             "app-droppable": LocalJSX.AppDroppable & JSXBase.HTMLAttributes<HTMLAppDroppableElement>;
             "app-home": LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
-            "app-profile": LocalJSX.AppProfile & JSXBase.HTMLAttributes<HTMLAppProfileElement>;
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
             "kz-draggable": LocalJSX.KzDraggable & JSXBase.HTMLAttributes<HTMLKzDraggableElement>;
             "kz-droppable": LocalJSX.KzDroppable & JSXBase.HTMLAttributes<HTMLKzDroppableElement>;

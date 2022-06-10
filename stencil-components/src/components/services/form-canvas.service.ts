@@ -14,15 +14,18 @@ import { DroppableControlInput, DroppableControlInputRow, IDroppableControlInput
         this._layout.push( new DroppableControlInput({row:2,col:2}));
     }
 
-    public addControl(obj:IDroppableControlInput):void{         
+    public addControl(obj:IDroppableControlInput):void{    
+        console.log(`${obj}`)     
     }
 
-    public removeControl(id:string):void { 
+    public removeControl(id:string):void {   
+        console.log(`${id}`)     
     }
 
     public moveControl(fromId:string, toId:string):void { 
-    }
-
+          
+        console.log(`${fromId}  to ${toId}`)     
+    }  
     public getControlList(): Array<IDroppableControlInput>{
         return this._layout;
     }

@@ -22,8 +22,9 @@ export class KzDroppable {
 
   @Method()
   async complete(ev, data) {
-    
-      console.log('draggedControl data: ',data);
+          
+          
+      console.log(`${ev}  to ${data}`)     
       let output = new DroppableControlOutput({...data, ... this.input})
       this.elementDropped.emit(output);      
       console.log('draggedControl: ',output);
