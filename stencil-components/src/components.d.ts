@@ -7,17 +7,6 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { IDroppableControlInput } from "./components/models/index";
 export namespace Components {
-    interface AppDraggable {
-        "dropData": any;
-        "droppable": any;
-    }
-    interface AppDroppable {
-        "complete": (ev: any, data: any) => Promise<void>;
-    }
-    interface AppHome {
-    }
-    interface AppRoot {
-    }
     interface KzDraggable {
         "dropData": any;
         "droppableList": any;
@@ -27,31 +16,11 @@ export namespace Components {
         "input": IDroppableControlInput;
     }
 }
+export interface KzDroppableCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLKzDroppableElement;
+}
 declare global {
-    interface HTMLAppDraggableElement extends Components.AppDraggable, HTMLStencilElement {
-    }
-    var HTMLAppDraggableElement: {
-        prototype: HTMLAppDraggableElement;
-        new (): HTMLAppDraggableElement;
-    };
-    interface HTMLAppDroppableElement extends Components.AppDroppable, HTMLStencilElement {
-    }
-    var HTMLAppDroppableElement: {
-        prototype: HTMLAppDroppableElement;
-        new (): HTMLAppDroppableElement;
-    };
-    interface HTMLAppHomeElement extends Components.AppHome, HTMLStencilElement {
-    }
-    var HTMLAppHomeElement: {
-        prototype: HTMLAppHomeElement;
-        new (): HTMLAppHomeElement;
-    };
-    interface HTMLAppRootElement extends Components.AppRoot, HTMLStencilElement {
-    }
-    var HTMLAppRootElement: {
-        prototype: HTMLAppRootElement;
-        new (): HTMLAppRootElement;
-    };
     interface HTMLKzDraggableElement extends Components.KzDraggable, HTMLStencilElement {
     }
     var HTMLKzDraggableElement: {
@@ -65,39 +34,20 @@ declare global {
         new (): HTMLKzDroppableElement;
     };
     interface HTMLElementTagNameMap {
-        "app-draggable": HTMLAppDraggableElement;
-        "app-droppable": HTMLAppDroppableElement;
-        "app-home": HTMLAppHomeElement;
-        "app-root": HTMLAppRootElement;
         "kz-draggable": HTMLKzDraggableElement;
         "kz-droppable": HTMLKzDroppableElement;
     }
 }
 declare namespace LocalJSX {
-    interface AppDraggable {
-        "dropData"?: any;
-        "droppable"?: any;
-    }
-    interface AppDroppable {
-        "onElementDropped"?: (event: CustomEvent<any>) => void;
-    }
-    interface AppHome {
-    }
-    interface AppRoot {
-    }
     interface KzDraggable {
         "dropData"?: any;
         "droppableList"?: any;
     }
     interface KzDroppable {
         "input"?: IDroppableControlInput;
-        "onElementDropped"?: (event: CustomEvent<any>) => void;
+        "onElementDropped"?: (event: KzDroppableCustomEvent<any>) => void;
     }
     interface IntrinsicElements {
-        "app-draggable": AppDraggable;
-        "app-droppable": AppDroppable;
-        "app-home": AppHome;
-        "app-root": AppRoot;
         "kz-draggable": KzDraggable;
         "kz-droppable": KzDroppable;
     }
@@ -106,10 +56,6 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "app-draggable": LocalJSX.AppDraggable & JSXBase.HTMLAttributes<HTMLAppDraggableElement>;
-            "app-droppable": LocalJSX.AppDroppable & JSXBase.HTMLAttributes<HTMLAppDroppableElement>;
-            "app-home": LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
-            "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
             "kz-draggable": LocalJSX.KzDraggable & JSXBase.HTMLAttributes<HTMLKzDraggableElement>;
             "kz-droppable": LocalJSX.KzDroppable & JSXBase.HTMLAttributes<HTMLKzDroppableElement>;
         }

@@ -1,15 +1,19 @@
 import { Config } from '@stencil/core';
-import { angularOutputTarget } from '@stencil/angular-output-target';
-
-
-// https://stenciljs.com/docs/config
+import { angularOutputTarget, ValueAccessorConfig } from '@stencil/angular-output-target';
 
 export const config: Config = {
-  globalStyle: 'src/global/app.css',
-  globalScript: 'src/global/app.ts',
-  taskQueue: 'async',
-  namespace: 'koomzowebcomponent',
-  outputTargets: [  
+  namespace: 'stencil-components',
+  outputTargets: [
+    angularOutputTarget({
+      componentCorePackage: '@koomzocomponents/dist/components',        
+      directivesProxyFile: './../../koomzoappsv2/src/app/products/lowcode-app/libs/stencil-generated/proxies.ts',
+      directivesArrayFile: './../../koomzoappsv2/src/app/products/lowcode-app/libs/stencil-generated/index.ts',  
+     // directivesProxyFile: './../stencil-angularapp-demo/src/libs/stencil-generated/proxies.ts',  
+     // directivesArrayFile: './../stencil-angularapp-demo/src/libs/stencil-generated/index.ts',    
+     // valueAccessorConfigs: angularValueAccessorBindings,      
+      //https://pranavsarda.hashnode.dev/stenciljs-with-angular-app-directly,
+     // excludeComponents: [        'context-consumer'  ]
+    }),
     {
       type: 'dist',
       esmLoaderPath: '../loader',
@@ -20,17 +24,9 @@ export const config: Config = {
     {
       type: 'docs-readme',
     },
-    // angularOutputTarget({
-    //   componentCorePackage: '',
-    //   directivesProxyFile: '../angular-workspace/projects/component-library/src/lib/stencil-generated/components.ts',
-    //   directivesArrayFile: '../angular-workspace/projects/component-library/src/lib/stencil-generated/index.ts',
-    // }),
     {
       type: 'www',
-      // comment the following line to disable service workers in production
-      serviceWorker: null,
-      baseUrl: 'https://myapp.local/',
+      serviceWorker: null, // disable service workers
     },
   ],
 };
-

@@ -1,6 +1,6 @@
 dist/
-!www/favicon.ico
 www/
+loader/
 
 *~
 *.sw[mnpcod]
@@ -24,4 +24,3 @@ $RECYCLE.BIN/
 Thumbs.db
 UserInterfaceState.xcuserstate
 .env
-loader/

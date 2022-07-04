@@ -4,6 +4,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
+      "@koomzocomponents/*": ["../stencil-components/*"],
       "component-library": [
         "dist/component-library/component-library",
         "dist/component-library"

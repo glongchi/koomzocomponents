@@ -32,19 +32,6 @@ Type: `Promise<void>`
 
 
 
-## Dependencies
-
-### Used by
-
- - [app-home](../app-home)
-
-### Graph
-```mermaid
-graph TD;
-  app-home --> kz-droppable
-  style kz-droppable fill:#f9f,stroke:#333,stroke-width:4px
-```
-
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*
